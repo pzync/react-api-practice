@@ -1,0 +1,43 @@
+.food-item-card {
+  width: 260px;
+  padding: 8px;
+  border: 0.5px solid #66666620;
+  border-radius: 4px;
+  transition: 0.2s all ease-in-out;
+  margin: 10px 0;
+}
+
+.food-item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 1px 2px 2px #66666640;
+}
+
+.card-image {
+  width: inherit;
+  height: 200px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p {
+  display: inline-flex;
+  color: #484848;
+  font-size: 14px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+button {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0aacf7;
+  border: 1.5px solid;
+  padding: 4px 24px;
+  display: inline-flex;
+  float: right;
+  align-items: center;
+  margin-top: 4px;
+  cursor: pointer;
+}
