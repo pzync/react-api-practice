@@ -8,3 +8,13 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 }
+
+h2 {
+  font-weight: 700;
+  color: #20222850;
+}
+
+hr {
+  margin: 40px 0;
+  border: 1px dashed #20222850;
+}
