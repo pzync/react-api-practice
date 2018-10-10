@@ -17,7 +17,7 @@
   position: absolute;
   right: 20px;
   top: 20px;
-  z-index: 100;
+  z-index: 1;
   background: none;
   color: inherit;
   border: none;
@@ -49,7 +49,7 @@ button {
   font-weight: 800;
   color: #0aacf7;
   border: 1.5px solid;
-  padding: 4px 24px;
+  padding: 4px 20px;
   display: inline-flex;
   float: right;
   align-items: center;

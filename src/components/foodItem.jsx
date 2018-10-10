@@ -1,7 +1,7 @@
 import React from "react";
 import "./foodItem.css";
 
-const FoodItem = ({ title, image, publisher, liked, onLike }) => {
+const FoodItem = ({ title, image, publisher, liked, onLike, onShow }) => {
   return (
     <div className="food-item-card">
       <img src={image} alt="Card" className="card-image" />
@@ -27,7 +27,7 @@ const FoodItem = ({ title, image, publisher, liked, onLike }) => {
           />
         </svg>
       </button>
-      <button>ADD</button>
+      <button onClick={onShow}>SHOW</button>
     </div>
   );
 };

@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import "./App.css";
 import FoodItem from "./components/foodItem";
+import Modal from "./components/modal";
 
-const API_KEY = `22bb85986e161bafa350f51ba4c4c0a4`;
+const API_KEY = `38348c8d8e6066fe42fcd7fb4a2375bc`;
 
 class App extends Component {
   state = {
     foodItems: [],
     hasLoaded: false,
-    likeCount: 0
+    likeCount: 0,
+    activeItem: {},
+    showModal: false
   };
 
   async componentDidMount() {
@@ -37,8 +40,22 @@ class App extends Component {
     this.setState({ foodItems, likeCount });
   };
 
+  handleShow = foodItem => {
+    this.setState({ activeItem: foodItem, showModal: true });
+  };
+
+  handleClose = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
-    const { foodItems, hasLoaded, likeCount } = this.state;
+    const {
+      foodItems,
+      hasLoaded,
+      likeCount,
+      activeItem,
+      showModal
+    } = this.state;
     return (
       <div className="App">
         <h1>Your Recipes</h1>
@@ -58,6 +75,7 @@ class App extends Component {
                     publisher={f.publisher}
                     liked={f.liked}
                     onLike={() => this.handleLike(f)}
+                    onShow={() => this.handleShow(f)}
                   />
                 ))}
               </div>
@@ -76,10 +94,16 @@ class App extends Component {
                   publisher={f.publisher}
                   liked={f.liked}
                   onLike={() => this.handleLike(f)}
+                  onShow={() => this.handleShow(f)}
                 />
               ))
             : `Loading recipes...`}
         </div>
+        <Modal
+          showModal={showModal}
+          itemToDisplay={activeItem}
+          onClose={this.handleClose}
+        />
       </div>
     );
   }

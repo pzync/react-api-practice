@@ -1,0 +1,47 @@
+.modal-block {
+  z-index: 10;
+  position: fixed;
+  width: 600px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  overflow: auto;
+  background: white;
+  padding: 40px 40px;
+  box-shadow: -60px 0 60px 60px #66666620;
+}
+
+.modal-image {
+  width: inherit;
+  height: 400px;
+}
+
+.modal-title {
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 0;
+}
+
+.modal-block p {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.close-button {
+  position: fixed;
+  font-size: 14px;
+  font-weight: 800;
+  color: white;
+  background-color: #f70000;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  margin-top: -20px;
+}
+
+.modal-block a {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0aacf7;
+  text-decoration: none;
+}
