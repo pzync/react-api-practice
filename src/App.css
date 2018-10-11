@@ -18,3 +18,47 @@ hr {
   margin: 40px 0;
   border: 1px dashed #20222850;
 }
+
+.favSec-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.favSec-enter.favSec-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 500ms all ease-in-out;
+}
+
+.favAnim-enter {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.favSec-exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.favSec-exit.favSec-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 500ms all ease-in-out;
+}
+
+.favAnim-enter.favAnim-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 500ms all ease-in-out;
+}
+
+.favAnim-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.favAnim-exit.favAnim-exit-active {
+  opacity: 0;
+  transform: translateX(10px);
+  transition: 500ms all ease-in-out;
+}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import FoodItem from "./components/foodItem";
 import Modal from "./components/modal";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const API_KEY = `38348c8d8e6066fe42fcd7fb4a2375bc`;
 
@@ -59,31 +60,41 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Your Recipes</h1>
-        <React.Fragment>
-          {likeCount ? (
-            <div>
-              <h2>
-                Favorites(
-                {likeCount})
-              </h2>
-              <div className="card-list fav-list">
-                {foodItems.filter(f => f.liked).map(f => (
-                  <FoodItem
-                    key={f.recipe_id}
-                    title={f.title}
-                    image={f.image_url}
-                    publisher={f.publisher}
-                    liked={f.liked}
-                    onLike={() => this.handleLike(f)}
-                    onShow={() => this.handleShow(f)}
-                  />
-                ))}
+        <CSSTransition in={likeCount > 0} timeout={500} classNames="favSec">
+          <React.Fragment>
+            {likeCount ? (
+              <div>
+                <h2>
+                  Favorites(
+                  {likeCount})
+                </h2>
+                <div>
+                  <TransitionGroup className="card-list fav-list">
+                    {foodItems.filter(f => f.liked).map(f => (
+                      <CSSTransition
+                        key={f.recipe_id}
+                        timeout={500}
+                        classNames="favAnim"
+                      >
+                        <FoodItem
+                          key={f.recipe_id}
+                          title={f.title}
+                          image={f.image_url}
+                          publisher={f.publisher}
+                          liked={f.liked}
+                          onLike={() => this.handleLike(f)}
+                          onShow={() => this.handleShow(f)}
+                        />
+                      </CSSTransition>
+                    ))}
+                  </TransitionGroup>
+                </div>
+                <hr />
+                <h2>All Recipes</h2>
               </div>
-              <hr />
-              <h2>All Recipes</h2>
-            </div>
-          ) : null}
-        </React.Fragment>
+            ) : null}
+          </React.Fragment>
+        </CSSTransition>
         <div className="card-list">
           {hasLoaded && foodItems.length
             ? foodItems.map(f => (
